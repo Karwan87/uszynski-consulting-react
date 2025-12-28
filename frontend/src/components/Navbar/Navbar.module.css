@@ -1,0 +1,97 @@
+.container {
+  width: 100%;
+}
+.nav_links {
+  display: none;
+}
+.nav_links li a {
+  text-decoration: none;
+  font-family: "Mulish", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(44, 69, 117);
+  transition: color 0.2s; /* Dodaj przejście dla hovera */
+}
+.nav_links li a:hover {
+  cursor: pointer;
+  color: #ff5733; /* Zmień na kolor hovera, np. inny niż domyślny */
+}
+.burger_menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  fill: rgb(165, 164, 173);
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+}
+.burger_menu_icon {
+  width: 40px;
+  height: 40px;
+  transition: fill 0.2s; /* Dodaj przejście dla hovera */
+}
+.burger_menu_icon:hover {
+  fill: rgb(44, 69, 117);
+}
+.mobile_nav {
+  /* 1. Pozycjonowanie poza ekranem (STAN POCZĄTKOWY) */
+  position: fixed;
+  top: 0px;
+  right: 0;
+  min-width: 200px;
+  max-width: 30%; /* Szerokość sidebara */
+
+  /* UKRYCIE: Przesuń 100% szerokości sidebara poza ekran */
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out; /* Płynne otwieranie/zamykanie */
+
+  /* 2. Style wizualne i układ */
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 11; /* Niższy niż burger, ale wyższy niż treść */
+}
+.is_open {
+  transform: translateX(0); /* Zsuń menu na pozycję widoczną */
+}
+.mobile_nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  transition: color 0.2s ease;
+  padding: 10px 30px;
+  width: 100%;
+  text-align: left; /* Wyrównanie do lewej strony */
+}
+
+.mobile_nav a:hover {
+  background-color: #f0f0f0;
+  color: rgb(44, 69, 117);
+}
+
+@media (min-width: 640px) {
+  .nav_links {
+    margin: 20px auto;
+    display: flex;
+    padding: 0;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 360px;
+    height: 60px;
+  }
+  .nav_links li a {
+    font-size: 24px;
+    font-family: "Work Sans";
+  }
+  .mobile_nav {
+    display: none; /* Całkowicie ukryj mobilny sidebar na desktopie */
+  }
+  .burger_menu {
+    display: none;
+  }
+}

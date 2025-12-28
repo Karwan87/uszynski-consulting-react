@@ -1,0 +1,85 @@
+.background_shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -10;
+  fill: rgb(44, 69, 117);
+  z-index: -10;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+}
+
+.shape-1 {
+  top: -35px;
+  left: -35px;
+}
+.shape-2 {
+  left: -75px;
+  transform: none;
+}
+.shape-3 {
+  top: -25px;
+  right: -75px;
+  left: auto;
+  transform: none;
+}
+.shape-4 {
+  top: -5px;
+  right: -30px;
+  left: auto;
+  transform: none;
+}
+.shape-5 {
+  top: 550px;
+  left: -75px;
+}
+.shape-6 {
+  top: 600px;
+  left: -50px;
+}
+.shape-7 {
+  top: 550px;
+  right: -75px;
+  left: auto;
+  transform: none;
+}
+.shape-8 {
+  top: 625px;
+  right: -50px;
+  left: auto;
+  transform: none;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  cursor: default;
+}
+.LogoIcon {
+  display: flex;
+  justify-content: center;
+  fill: rgb(44, 69, 117);
+  margin: 0 auto;
+  width: 60%;
+  min-height: 120px;
+  max-height: 180px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+}
+.LogoIcon:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transform: translateY(-2px);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+}
+.logo:hover .LogoIcon {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+}

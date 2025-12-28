@@ -1,0 +1,101 @@
+.servicescontainer {
+  width: 100%;
+}
+.servicesdescription {
+  width: 80%;
+  margin: 50px auto;
+}
+.servicestitle {
+  font-family: "Lexend Deca";
+  font-size: 36px;
+  text-align: left;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.servicesdetails {
+  font-family: "Mulish";
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0px;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.servicesoffers {
+  width: 80vw;
+  margin: 50px auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(41, 29, 29, 0.08);
+}
+
+.box {
+  margin: 15px;
+  min-width: 30%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease,
+    scale 0.5s ease;
+}
+.box:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+  scale: 1.05;
+}
+.boximg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  aspect-ratio: 1/1;
+  min-height: 100px;
+  order: 10;
+  max-width: 100%;
+}
+.svg {
+  max-width: 100%;
+  max-height: 100%;
+}
+h2 {
+  text-align: center;
+}
+.boxdescription {
+  text-align: center;
+  min-height: 200px;
+  max-height: 100%;
+}
+@media (min-width: 768px) {
+  .servicesdescription {
+    display: flex;
+    flex-direction: row;
+  }
+  .boxdescription {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .servicestitle {
+    font-size: 56px;
+    width: 50vw;
+    justify-content: center;
+    align-content: center;
+  }
+  .servicesdetails {
+    width: 50vw;
+    font-size: 22px;
+    justify-content: center;
+    align-content: center;
+  }
+  .servicesoffers {
+    width: 90vw;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+}

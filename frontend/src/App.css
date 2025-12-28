@@ -1,0 +1,9 @@
+body {
+  font-family: "Lexend Deca", sans serif;
+  color: rgb(44, 69, 117);
+  background-color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+}

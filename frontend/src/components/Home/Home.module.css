@@ -1,0 +1,70 @@
+.home {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.banner {
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 2rem;
+}
+.description {
+  font-family: "Mulish";
+  font-size: 18px;
+  text-align: center;
+}
+.container_btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+.contact_btn {
+  align-items: center;
+  background-color: rgb(44, 69, 117);
+  color: #ffffff;
+  border: 5px solid #ffffff;
+  padding: 5px 40px;
+  font-family: "Mulish", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  border-style: double;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+.contact_btn:hover {
+  background-color: #3b619e;
+  border-color: #f0f0f0;
+  color: #f0f0f0;
+}
+.contact_btn:active {
+  background-color: #2c4575;
+  border-color: #cccccc;
+}
+
+@media (min-width: 768px) {
+  .description {
+    font-size: 22px;
+  }
+  .banner {
+    font-size: 36px;
+    padding: 0 10px;
+  }
+  .container {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: auto;
+  }
+}

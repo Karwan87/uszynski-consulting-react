@@ -1,0 +1,186 @@
+.contactcontainer {
+  width: 100%;
+}
+.titlecontainer {
+  font-family: "Lexend Deca";
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+.socials {
+  display: flex;
+  justify-content: center;
+}
+.svg {
+  display: flex;
+  justify-content: center;
+  fill: rgb(44, 69, 117);
+  width: 30px;
+  height: 30px;
+  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+}
+.svg:hover {
+  cursor: pointer;
+}
+.socialLink:hover .svg {
+  transform: translateY(-2px);
+  opacity: 0.85;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.2));
+}
+
+.socialLink:focus-visible .svg {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+.contactsection {
+  margin: 45px auto;
+  background-color: rgb(44, 69, 117);
+  border-radius: 8px;
+  color: #ffffff;
+  max-width: 1080px;
+  width: 80%;
+  padding: 25px 0;
+}
+.title {
+  font-family: "Lexend Deca";
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.form_group {
+  display: flex;
+  justify-content: center;
+}
+.inputWrapper {
+  position: relative; /* Ważne dla pozycjonowania błędu */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff; /* Białe tło pola */
+  border-radius: 5px;
+  margin: 10px; /* Odstęp między polami w gridzie */
+  padding: 0 10px; /* Padding wewnętrzny dla tekstu */
+  height: 45px; /* Stała wysokość pola */
+}
+
+input {
+  width: 100%;
+  height: 100%;
+  background: transparent; /* Przezroczysty, bo tło daje wrapper */
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  color: #333;
+}
+textarea {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+.column {
+  width: 100%;
+}
+.gdprContainer {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.label {
+  width: 80%;
+  font-size: 13px;
+  color: #ffffff;
+  line-height: 1.4;
+}
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 20%;
+}
+
+.gdprLink {
+  color: #ffffff;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.send_btn {
+  align-items: center;
+  background-color: rgb(44, 69, 117);
+  width: 90%;
+  margin: 0 auto;
+  padding: 5px;
+  color: #ffffff;
+  border: 5px solid #ffffff;
+  padding: 5px 40px;
+  font-family: "Mulish", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  border-style: double;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+.send_btn:hover {
+  background-color: #3b619e;
+  border-color: #f0f0f0;
+  color: #f0f0f0;
+}
+.send_btn:active {
+  background-color: #2c4575;
+  border-color: #cccccc;
+}
+.form_msg {
+  padding: 0 20px;
+}
+.wrap {
+  display: grid;
+  width: 100%; /* Zmienione z 98% dla lepszego wyrównania */
+  grid-template-columns: 1fr;
+  padding: 0 10px; /* Zamiast marginesu auto */
+  box-sizing: border-box;
+}
+.error {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff4d4d;
+  font-size: 0.75rem;
+  font-weight: bold;
+  pointer-events: none;
+  white-space: nowrap;
+  background-color: #ffffff; /* Zasłania tekst pod spodem, jeśli się nałożą */
+  padding-left: 5px;
+}
+@media (min-width: 768px) {
+  .wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .titlecontainer {
+    font-size: 56px;
+  }
+  .send_btn {
+    width: auto;
+  }
+  .title {
+    font-size: 56px;
+  }
+}
