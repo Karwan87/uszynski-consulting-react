@@ -1,8 +1,10 @@
 import styles from "../Contact/Contact.module.css";
 import React, { useState } from "react";
 import RODOContact from "../RODO/RODOContact";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
   const [gdprAccepted, setGdprAccepted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -112,60 +114,67 @@ const Contact = () => {
       newErrors.lastName = "Błędne dane.";
     }
 
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Niepoprawny email.";
+    }
+
+    if (!formData.phone || formData.phone.replace(/\D/g, "").length < 11) {
+      newErrors.phone = "Niepoprawny numer telefonu.";
+    }
+
+    if (!formData.message || formData.message.length > 2000) {
+      newErrors.message = "Wiadomość jest wymagana (max 2000 znaków).";
+    }
+
+    if (!gdprAccepted) {
+      newErrors.gdpr = "Wymagana zgoda RODO.";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // 1. Walidacja przed wysyłką
+
+    // 1. Walidacja formularza
     if (!validate()) return;
 
+    setLoading(true);
+
     try {
-      // 2. Używamy Twojej prawdziwej domeny
-      const response = await // fetch(`${API_URL}/api/contact`);
-      fetch(
-        //do testu lokalnego
-        // "http://localhost:3000/api/contact",
-        //do pracy na stronie
-        "/api/contact",
+      // 2. Wysyłka maila przez EmailJS
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
-      // 3. Sprawdzenie, czy serwer w ogóle odpowiedział (np. czy nie ma 404)
-      if (!response.ok) {
-        throw new Error(
-          "Serwer nie odpowiada (status: " + response.status + ")"
-        );
-      }
 
-      const result = await response.json();
+      // 3. Sukces
+      alert("Wiadomość została wysłana!");
 
-      if (result.status === "success") {
-        alert("Wiadomość została wysłana!");
-        // Czyszczenie formularza po sukcesie
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
-        // Opcjonalnie: wyczyść błędy
-        setErrors({});
-      } else {
-        alert("Błąd serwera: " + result.message);
-      }
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+
+      setErrors({});
     } catch (error) {
-      // 4. Obsługa błędów sieciowych lub braku połączenia
-      console.error("Szczegóły błędu:", error);
+      console.error("Błąd wysyłki EmailJS:", error);
       alert(
         "Nie udało się wysłać wiadomości. Jeśli problem się powtarza, spróbuj później."
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -300,6 +309,9 @@ const Contact = () => {
                   style={{ cursor: "pointer" }}
                   required
                 />
+                {errors.gdpr && (
+                  <span className={styles.error}>{errors.gdpr}</span>
+                )}
                 <label
                   className={styles.label}
                   htmlFor="gdpr"
