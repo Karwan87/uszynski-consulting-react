@@ -49,7 +49,7 @@ const Navbar = () => {
           {" "}
           {/* Dodaj onClick */}
           <svg className={styles.burger_menu_icon} viewBox="0 0 23 23">
-            <use href="/public/sprite.svg#burger-menu"></use>
+            <use href="/sprite.svg#burger-menu"></use>
           </svg>
         </div>
         <div
