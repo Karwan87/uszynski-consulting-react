@@ -37,21 +37,21 @@
   transform: none;
 }
 .shape-5 {
-  top: 550px;
+  bottom: 50px;
   left: -75px;
 }
 .shape-6 {
-  top: 600px;
+  bottom: 25px;
   left: -50px;
 }
 .shape-7 {
-  top: 550px;
+  bottom: 55px;
   right: -75px;
   left: auto;
   transform: none;
 }
 .shape-8 {
-  top: 625px;
+  bottom: 5px;
   right: -50px;
   left: auto;
   transform: none;
