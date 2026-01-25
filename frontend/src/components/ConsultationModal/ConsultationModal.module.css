@@ -1,0 +1,136 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.textbox {
+  height: 20px;
+  padding: 5px;
+  margin: 10px auto;
+  width: 90%;
+}
+.notes {
+  padding: 5px;
+  margin: 10px auto;
+  width: 90%;
+  height: 60px;
+}
+.modal {
+  background: #111;
+  color: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  width: min(520px, 90%);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #333 !important;
+  border: 1px solid #555;
+  border-radius: 6px;
+  color: rgb(165, 164, 164) !important;
+  font-size: 14px;
+}
+.header {
+  color: rgb(165, 164, 164);
+}
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+select {
+  color: white;
+}
+
+select option {
+  color: #555;
+}
+.scrollBox {
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+.form {
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+.description {
+  list-style-type: none;
+  text-align: start;
+  font-size: 10px;
+  color: rgb(165, 164, 164);
+}
+ul {
+  list-style-type: none;
+  text-align: left;
+  padding: 0;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #6ea8ff;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #6ea8ff;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.choiceGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ccc;
+}
