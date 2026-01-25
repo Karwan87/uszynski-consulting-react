@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import stylesHome from "./Home.module.css";
 import stylesWhyus from "./Whyus.module.css";
+import ConsultationModal from "../ConsultationModal/ConsultationModal";
 
 const Home = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
       <div className={stylesHome.home}>
         <div className={stylesHome.container}>
-          <p className={stylesHome.banner}>TWOJA FIRMA.</p>
-          <p className={stylesHome.banner}>NASZE WSPARCIE.</p>
-          <p className={stylesHome.banner}>WSPÓLNY KIERUNEK.</p>
+          <p className={stylesHome.banner}>TWOJA FIRMA</p>
+          <p className={stylesHome.banner}>NASZE WSPARCIE</p>
+          <p className={stylesHome.banner}>WSPÓLNY KIERUNEK</p>
         </div>
         <p className={stylesHome.description}>Mały Biznes, Duży wpływ.</p>
       </div>
@@ -107,6 +110,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
       <section className={stylesWhyus.order}>
         <h2 className={stylesWhyus.invitation}>
           Uporządkuj działania swojej firmy
@@ -116,15 +120,17 @@ const Home = () => {
           struktur i zbędnej teorii. Przejmujemy operacyjne wsparcie tam, gdzie
           liczy się porządek, dane i sprawna organizacja.
         </p>
-
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSel--4hU_OWLpNHjOtLW-MfS45yIlsl1s1kSBXO8fkAC4506w/viewform?usp=sharing&ouid=104054488937346203186"
+        <button
           className={stylesWhyus.order_btn}
-          target="_blank"
-          rel="noopener noreferrer"
+          onClick={() => setModalOpen(true)}
         >
           UMÓW BEZPŁATNĄ ROZMOWĘ
-        </a>
+        </button>
+
+        <ConsultationModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+        />
       </section>
     </>
   );
