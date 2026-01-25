@@ -60,16 +60,16 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
   /* ------------------ VALIDATION ------------------ */
 
-  const validateStep1 = () => {
-    const newErrors = {};
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Podaj poprawny adres e-mail.";
-    }
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  // const validateStep1 = () => {
+  //   const newErrors = {};
+  //   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+  //     newErrors.email = "Podaj poprawny adres e-mail.";
+  //   }
+  //   setErrors(newErrors);
+  //   return Object.keys(newErrors).length === 0;
+  // };
 
-  const validateStep4 = () => {
+  const validateStep3 = () => {
     const newErrors = {};
 
     if (!/^[A-Za-zÀ-žąćęłńóśżźĄĆĘŁŃÓŚŻŹ\s-]{2,}$/.test(formData.firstName)) {
@@ -107,7 +107,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
   /* ------------------ SUBMIT ------------------ */
 
   const handleSubmit = async () => {
-    if (!validateStep4()) return;
+    if (!validateStep3()) return;
     setLoading(true);
     const payload = {
       email: formData.email,
@@ -129,7 +129,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
         },
         body: JSON.stringify(payload),
       });
-      setStep(5); // traktujemy jako sukces
+      setStep(4); // traktujemy jako sukces
     } catch (err) {
       console.error(err);
       alert("Nie udało się wysłać zgłoszenia.");
@@ -140,31 +140,26 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
   /* ------------------ STEP HANDLERS ------------------ */
 
-  const nextFromStep1 = () => {
-    if (!validateStep1()) return;
+  const nextFromStep1 = (accepted) => {
+    if (!accepted) {
+      setConsentRegulations(false);
+      setStep(5);
+      return;
+    }
+
+    setConsentRegulations(true);
     setStep(2);
   };
 
   const nextFromStep2 = (accepted) => {
     if (!accepted) {
-      setConsentRegulations(false);
-      setStep(6);
-      return;
-    }
-
-    setConsentRegulations(true);
-    setStep(3);
-  };
-
-  const nextFromStep3 = (accepted) => {
-    if (!accepted) {
       setConsentRodo(false);
-      setStep(6);
+      setStep(5);
       return;
     }
 
     setConsentRodo(true);
-    setStep(4);
+    setStep(3);
   };
 
   return (
@@ -176,23 +171,6 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
         {/* STEP 1 */}
         {step === 1 && (
-          <>
-            <h2 className={styles.header}>Podaj adres e-mail</h2>
-            <input
-              className={styles.textbox}
-              type="email"
-              name="email"
-              placeholder="Twój email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            {errors.email && <p className={styles.error}>{errors.email}</p>}
-            <button onClick={nextFromStep1}>Dalej</button>
-          </>
-        )}
-
-        {/* STEP 2 */}
-        {step === 2 && (
           <>
             <h2 className={styles.header}>Regulamin bezpłatnej konsultacji</h2>
             <div className={styles.scrollBox}>
@@ -231,17 +209,17 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                 </p>
               </div>
               <div className={styles.actions}>
-                <button onClick={() => nextFromStep2(false)}>
+                <button onClick={() => nextFromStep1(false)}>
                   Nie zgadzam się
                 </button>
-                <button onClick={() => nextFromStep2(true)}>Zgadzam się</button>
+                <button onClick={() => nextFromStep1(true)}>Zgadzam się</button>
               </div>
             </div>
           </>
         )}
 
-        {/* STEP 3 */}
-        {step === 3 && (
+        {/* STEP 2 */}
+        {step === 2 && (
           <>
             <div className={styles.description}>
               <h2 className={styles.header}>RODO</h2>
@@ -295,10 +273,10 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                 </li>
 
                 <div className={styles.actions}>
-                  <button onClick={() => nextFromStep3(false)}>
+                  <button onClick={() => nextFromStep2(false)}>
                     Nie zgadzam się
                   </button>
-                  <button onClick={() => nextFromStep3(true)}>
+                  <button onClick={() => nextFromStep2(true)}>
                     Zgadzam się
                   </button>
                 </div>
@@ -307,8 +285,8 @@ const ConsultationModal = ({ isOpen, onClose }) => {
           </>
         )}
 
-        {/* STEP 4 */}
-        {step === 4 && (
+        {/* STEP 3 */}
+        {step === 3 && (
           <>
             <div className={styles.form}>
               <h2 className={styles.header}>Informacje do konsultacji</h2>
@@ -399,8 +377,8 @@ const ConsultationModal = ({ isOpen, onClose }) => {
           </>
         )}
 
-        {/* STEP 5 — SUCCESS */}
-        {step === 5 && (
+        {/* STEP 4 — SUCCESS */}
+        {step === 4 && (
           <>
             <h2 className={styles.header}>Dziękujemy!</h2>
             <p>
@@ -411,8 +389,8 @@ const ConsultationModal = ({ isOpen, onClose }) => {
           </>
         )}
 
-        {/* STEP 6 — CANCEL */}
-        {step === 6 && (
+        {/* STEP 5 — CANCEL */}
+        {step === 5 && (
           <>
             <h2 className={styles.header}>Brak zgody</h2>
             <p>
