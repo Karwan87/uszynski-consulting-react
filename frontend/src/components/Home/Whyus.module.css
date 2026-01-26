@@ -6,7 +6,7 @@
   padding-bottom: 1px;
 }
 .sectiontitle {
-  font-family: "Work Sans", sans-serif;
+  font-family: "WorkSans", sans-serif;
   font-size: 3rem;
   font-weight: 700;
   text-align: center;
@@ -97,6 +97,7 @@
   padding: 25px;
 }
 .invitation {
+  font-family: "Lexend Deca";
   font-size: 30px;
   padding: 25px;
 }

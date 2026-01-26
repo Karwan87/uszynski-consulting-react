@@ -17,7 +17,10 @@
   fill: rgb(44, 69, 117);
   width: 30px;
   height: 30px;
-  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    filter 0.25s ease;
 }
 .svg:hover {
   cursor: pointer;
@@ -57,7 +60,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: #ffffff; /* Białe tło pola */
+  background-color: #333; /* Białe tło pola */
   border-radius: 5px;
   margin: 10px; /* Odstęp między polami w gridzie */
   padding: 0 10px; /* Padding wewnętrzny dla tekstu */
@@ -72,7 +75,8 @@ input {
   outline: none;
   padding: 0;
   margin: 0;
-  font-family: inherit;
+  font-family: "Lexend Deca", inherit;
+  letter-spacing: 1px;
   color: #333;
 }
 textarea {
@@ -135,7 +139,9 @@ textarea {
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  transition: background-color 0.3s ease, color 0.3s ease,
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
     border-color 0.3s ease;
 }
 .send_btn:hover {
