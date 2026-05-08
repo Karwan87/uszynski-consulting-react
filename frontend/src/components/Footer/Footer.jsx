@@ -1,4 +1,5 @@
 import styles from "../Footer/Footer.module.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -9,9 +10,9 @@ const Footer = () => {
             © 2025 Uszyński Consulting. Wszystkie prawa zastrzeżone.
           </p>
           <div className={styles.contactinfo}>
-            <a href="mailto:d.uszynski@uszynskiconsulting.pl" className={styles.contactLink}>
+            <Link to="/contact" className={styles.contactLink}>
               d.uszynski@uszynskiconsulting.pl
-            </a>
+            </Link>
             <a href="tel:+48884519407" className={styles.contactLink}>
               +48 884 519 407
             </a>

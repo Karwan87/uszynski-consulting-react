@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import stylesHome from "./Home.module.css";
 import stylesWhyus from "./Whyus.module.css";
@@ -155,9 +155,9 @@ const Home = () => {
         </p>
         <div className={stylesWhyus.aboutcontact}>
           <p>
-            <a href="mailto:d.uszynski@uszynskiconsulting.pl">
+            <Link to="/contact">
               d.uszynski@uszynskiconsulting.pl
-            </a>
+            </Link>
           </p>
           <p>
             <a href="tel:+48884519407">+48 884 519 407</a>
