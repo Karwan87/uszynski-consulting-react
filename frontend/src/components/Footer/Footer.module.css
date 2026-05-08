@@ -14,6 +14,25 @@
   font-size: 12px;
   font-family: "Mulish";
 }
+.contactinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 8px 0;
+}
+.contactLink {
+  color: #ffffff;
+  font-family: "Mulish", sans-serif;
+  font-size: 12px;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+.contactLink:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
 .socials {
   display: flex;
   justify-content: center;

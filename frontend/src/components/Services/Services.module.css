@@ -83,7 +83,7 @@ h2 {
     flex-direction: column;
     width: 90%;
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
   }
   .servicestitle {
     font-size: 56px;
@@ -99,7 +99,7 @@ h2 {
   }
   .servicesoffers {
     width: 90vw;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 0;
   }
 }

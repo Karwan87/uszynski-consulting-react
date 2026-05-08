@@ -8,7 +8,7 @@ const Background = () => {
         <svg
           className={styles.LogoIcon}
           viewBox="0 0 1280 1024"
-          aria-label="Uszyński Consultiing - strona główna"
+          aria-label="Uszyński Consulting - strona główna"
         >
           <use href="/sprite.svg#img-logo-transparent"></use>
         </svg>

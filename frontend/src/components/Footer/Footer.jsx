@@ -8,6 +8,14 @@ const Footer = () => {
           <p className={styles.text}>
             © 2025 Uszyński Consulting. Wszystkie prawa zastrzeżone.
           </p>
+          <div className={styles.contactinfo}>
+            <a href="mailto:d.uszynski@uszynskiconsulting.pl" className={styles.contactLink}>
+              d.uszynski@uszynskiconsulting.pl
+            </a>
+            <a href="tel:+48884519407" className={styles.contactLink}>
+              +48 884 519 407
+            </a>
+          </div>
           <div className={styles.socials}>
             <a
               href="https://www.linkedin.com/in/damian-uszy%C5%84ski-058584249/"

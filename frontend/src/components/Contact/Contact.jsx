@@ -1,5 +1,6 @@
 import styles from "../Contact/Contact.module.css";
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import RODOContact from "../RODO/RODOContact";
 import emailjs from "emailjs-com";
 
@@ -180,6 +181,10 @@ const Contact = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Kontakt — Uszyński Consulting</title>
+        <meta name="description" content="Skontaktuj się z Uszyński Consulting. Napisz wiadomość lub umów bezpłatną konsultację. d.uszynski@uszynskiconsulting.pl | +48 884 519 407" />
+      </Helmet>
       {" "}
       <div className={styles.contactcontainer}>
         <div className={styles.infocontainer}>
@@ -263,7 +268,7 @@ const Contact = () => {
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="Nr tel: +01 123456789* "
+                    placeholder="Nr tel: +48 000 000 000*"
                     value={formData.phone}
                     onChange={handleChange}
                     onFocus={handleFocus}

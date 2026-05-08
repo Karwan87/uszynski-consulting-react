@@ -1,10 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../Navbar/Navbar.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleOmniClick = (e) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      document.getElementById("o-mnie")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/", { state: { scrollTo: "o-mnie" } });
+    }
+  };
   const mobileNavClasses = `${styles["mobile_nav"]} ${
     isMenuOpen ? styles.is_open : ""
   }`;
@@ -34,7 +45,6 @@ const Navbar = () => {
     <>
       <div className={styles.container}>
         <ul className={styles.nav_links}>
-          {/* ... (dokończ też atrybuty to="/" tutaj!) ... */}
           <li className={styles.list_style}>
             <NavLink to="/">GŁÓWNA</NavLink>
           </li>
@@ -43,6 +53,9 @@ const Navbar = () => {
           </li>
           <li className={styles.list_style}>
             <NavLink to="/contact">KONTAKT</NavLink>
+          </li>
+          <li className={styles.list_style}>
+            <a href="/#o-mnie" className={styles.anchor_link} onClick={handleOmniClick}>O MNIE</a>
           </li>
         </ul>
         <div className={styles.burger_menu} onClick={toggleMenu}>
@@ -65,6 +78,9 @@ const Navbar = () => {
           <NavLink to="/contact" onClick={toggleMenu}>
             KONTAKT
           </NavLink>
+          <a href="/#o-mnie" className={styles.anchor_link} onClick={(e) => { handleOmniClick(e); toggleMenu(); }}>
+            O MNIE
+          </a>
         </div>
       </div>
     </>
